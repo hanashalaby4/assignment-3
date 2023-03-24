@@ -15,10 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Person.h">
+    <ClInclude Include="person.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="customer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mechanic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -27,6 +30,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="customer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="workshop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mechanic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
