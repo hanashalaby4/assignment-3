@@ -25,18 +25,10 @@ bool mechanic::isAvailable(const appointment& apt) const
 {
 	for (int i = 0; i < count; i++)
 	{
-		if (apnts->hours == apt.hours && apnts->mins == apt.mins)
+		if (apnts[i].hours == apt.hours && apnts[i].mins == apt.mins)
 			return false;
-		else if (apnts->hours == apt.hours && apnts->mins != apt.mins)
+	}	
 			return true;
-		else
-			return true;
-			
-		apnts++;
-	}
-	apnts = apnts - (count);
-	return false;
-
 }
 
 int mechanic::getCount() const

@@ -26,6 +26,8 @@ int main()
 	customers[2].setApt({ 3, 0 });
 	customers[3].setName("Mohammed");
 	customers[3].setApt({ 1, 0 });
+	
+	Queue<customer> qCustomers(MAX_CUSTOMERS);
 
 	for (int j = 0; j < MAX_CUSTOMERS; j++)
 	{
@@ -36,15 +38,15 @@ int main()
 			{
 				customers[j].setmID(i + 1);
 				mechanics[i].setApoint(customers[j].getApt());
+				qCustomers.push(customers[j]);
 				foundMech = true;
 				break;			
 			}
 		}
 		if (!foundMech)
 			cout << "No mechanics" << endl;
-
-
 	}
+
 
 
 }

@@ -1,24 +1,8 @@
-#pragma once
+#ifndef _PERSON
+#define _PERSON
 #include <iostream>
 using namespace std;
 
-
-class person {
-private:
-	string name;
-	int ID, age;
-public:
-	person();
-	person(string n, int id, int a);
-	void setName(string n);
-	void setID(int id);
-	void setAge(int a);
-	string getName() const;
-	int getID() const;
-	int getAge() const;
-	virtual void printInfo() = 0;
-	
-};
 struct appointment
 {
 	int hours;
@@ -26,7 +10,7 @@ struct appointment
 	appointment()
 	{
 		hours = 0;
-		mins = 0; 
+		mins = 0;
 	}
 	appointment(int h, int m)
 	{
@@ -46,4 +30,23 @@ struct appointment
 		cout << hours << ":" << mins << endl;
 	}
 };
+
+class person {
+private:
+	string name;
+	int ID, age;
+public:
+	person();
+	person(string n, int id, int a);
+	void setName(string n);
+	void setID(int id);
+	void setAge(int a);
+	string getName() const;
+	int getID() const;
+	int getAge() const;
+	virtual void printInfo() = 0;
+	
+};
+#endif 
+
 
