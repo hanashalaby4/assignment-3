@@ -2,6 +2,12 @@
 using namespace std;
 #include "Person.h"
 
+person::person()
+{
+	name = " ";
+	ID = 0;
+	age = 0;
+}
 person::person(string n, int id, int a)
 {
 	name = n;
@@ -20,15 +26,15 @@ void person::setName(string n)
 {
 	name = n;
 }
-int person::getAge()
+int person::getAge() const
 {
 	return age;
 }
-int person::getID()
+int person::getID() const
 {
 	return ID;
 }
-string person::getName()
+string person::getName() const
 {
 	return name;
 }

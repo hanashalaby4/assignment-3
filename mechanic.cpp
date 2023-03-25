@@ -5,7 +5,7 @@ using namespace std;
 
 void mechanic::printInfo()
 {
-	cout << getName() << " " << getID << " " << getAge() << " " << getCount() << endl;
+	cout << getName() << " " << getID() << " " << getAge() << " " << getCount() << endl;
 	for (int i = 0; i < getCount(); i++)
 	{
 		apnts->printApt();
@@ -13,19 +13,14 @@ void mechanic::printInfo()
 	}
 	apnts = apnts - getCount();
 }
-int mechanic::getCount()
-{
-	return count;
-}
+
 void mechanic::setApoint(const appointment& a)
 {
-	apnts = new appointment;
-
-	count++;
+	apnts = new appointment[++count];
 }
 bool mechanic::isAvailable(const appointment& apt)
 {
-	for (int i = 0; i < getCount(); i++)
+	for (int i = 0; i < 24; i++)
 	{
 		if (apnts->hours == apt.hours && apnts->mins == apt.mins)
 			return false;
@@ -36,5 +31,12 @@ bool mechanic::isAvailable(const appointment& apt)
 			
 		apnts++;
 	}
-	apnts = apnts - getCount();
+	apnts = apnts - 24;
+	return false;
+
+}
+
+int mechanic::getCount() const
+{
+	return count;
 }

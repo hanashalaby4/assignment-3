@@ -15,13 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="person.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="customer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="mechanic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\queuec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="person.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,19 +3,21 @@
 using namespace std;
 #include "customer.h"
 
+
 void customer::setApt(const appointment& Apt)
 {
 	apnt = Apt;
+
 }
 void customer::setmID(int mID)
 {
 	mechanicID = mID;
 }
-appointment customer::getApt()
+appointment customer::getApt() const
 {
 	return apnt;
 }
-int customer::getmID()
+int customer::getmID() const
 {
 	return mechanicID;
 }
@@ -42,7 +44,7 @@ bool customer::operator>(const customer& c2)
 	return false;
 		
 }
-bool customer::operator=(const customer& c2)
+bool customer::operator==(const customer& c2)
 {
 	if (apnt.hours == c2.apnt.hours && apnt.mins == c2.apnt.mins)
 		return true;

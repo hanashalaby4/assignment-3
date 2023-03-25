@@ -2,21 +2,49 @@
 #include <iostream>
 using namespace std;
 #include "customer.h"
+#include "mechanic.h"
+#include "queuec.h"
+
+const int MAX_MECHANICS = 3;
+const int MAX_CUSTOMERS = 4;
 
 int main()
 {
-	appointment a1, a2;
-	a1.hours = 4;
-	a1.mins = 20;
-	a2.hours = 6;
-	a2.mins = 40;
-	string n = "hana", n2 = "hala";
-	customer c1(n, 123, 18, a1, 4), c2(n2, 12, 21, a2, 5);
-	c1.printInfo();
-	c2.printInfo();
-	if (c1 > c2)
+	// Read mechanics' data from the user or initialize them within the main function
+	mechanic mechanics[MAX_MECHANICS];
+	mechanics[0].setName("Ayman");
+	mechanics[1].setName("Khaled");
+	mechanics[2].setName("Jana");
+
+	// Read customers' data from the user
+	customer customers[MAX_CUSTOMERS];
+	customers[0].setName("Ahmed");
+	customers[0].setApt({ 1, 0 });
+	customers[1].setName("Sara");
+	customers[1].setApt({ 4, 0 });
+	customers[2].setName("Kareem");
+	customers[2].setApt({ 3, 0 });
+	customers[3].setName("Mohammed");
+	customers[3].setApt({ 1, 0 });
+
+	for (int j = 0; j < MAX_CUSTOMERS; j++)
 	{
-		cout << "customer 1 is served first";
+		bool foundMech = false;
+		for (int i = 0; i < MAX_MECHANICS; i++)
+		{
+			if (mechanics[i].isAvailable(customers[j].getApt()))
+			{
+				customers[j].setmID(i + 1);
+				mechanics[i].setApoint(customers[j].getApt());
+				foundMech = true;
+				break;			
+			}
+		}
+		if (!foundMech)
+			cout << "No mechanics" << endl;
+
+
 	}
-	else cout << " false";
+
+
 }
