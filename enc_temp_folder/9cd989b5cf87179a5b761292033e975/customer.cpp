@@ -7,6 +7,7 @@ using namespace std;
 void customer::setApt(const appointment& Apt)
 {
 	apnt = Apt;
+
 }
 void customer::setmID(int mID)
 {

@@ -61,6 +61,30 @@ int main()
 	}
 	customersInput.close();
 
+	// Read mechanics' data from the user or initialize them within the main function
+	/*mechanic mechanics[MAX_MECHANICS];
+	mechanics[0].setName("Ayman");
+	mechanics[1].setName("Khaled");
+	mechanics[2].setName("Jana");*/
+
+	// Read customers' data from the user
+	/*customer customers[MAX_CUSTOMERS];
+	customers[0].setName("Ahmed");
+	customers[0].setApt({ 1, 0 });
+	customers[0].setID(1);
+	customers[1].setName("Sara");
+	customers[1].setApt({ 4, 0 });
+	customers[1].setID(2);
+	customers[2].setName("Kareem");
+	customers[2].setApt({ 3, 0 });
+	customers[2].setID(3);
+	customers[3].setName("Mohammed");
+	customers[3].setApt({ 1, 0 });
+	customers[3].setID(4);*/
+
+
+
+
 	Queue<customer> qCustomers(numCustomers);
 	//checking availability
 	for (int j = 0; j < numCustomers;j++)

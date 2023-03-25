@@ -11,15 +11,14 @@ void mechanic::printInfo()
 	cout << getName() << " " << getID() << " " << getAge() << " " << getCount() << endl;
 	for (int i = 0; i < getCount(); i++)
 	{
-		apnts->printApt();
-		apnts++;
+		apnts[i].printApt();
 	}
-	apnts = apnts - getCount();
+	
 }
 
 void mechanic::setApoint(const appointment& a)
 {
-	apnts = new appointment[++count];
+	apnts[++count] = a;
 }
 bool mechanic::isAvailable(const appointment& apt) const
 {
