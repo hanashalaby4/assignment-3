@@ -21,10 +21,10 @@ int main()
 	mechanicsInput >> mechAmount;
 	mechanic* mechanics = new mechanic[mechAmount];
 
-	/*if (mechanics == nullptr) {
+	if (mechanics == nullptr) {
 		cout << "failed to allocate memory for mechanics" << endl;
 		exit(1);
-	}*/
+	}
 
 	for (int i = 0; i < mechAmount; i++)
 	{
@@ -55,9 +55,9 @@ int main()
 	customersInput >> numCustomers;
 	customer* customers = new customer[numCustomers];
 
-	/*if (customers == nullptr) {
+	if (customers == nullptr) {
 		cout << "Failed to allocate memory for customers" << endl;
-		exit(1);*/
+		exit(1);
 
 		for (int i = 0; i < numCustomers; i++)
 		{
