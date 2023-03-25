@@ -20,7 +20,7 @@ int customer::getmID() const
 {
 	return mechanicID;
 }
-bool customer::operator<(const customer& c2)
+bool customer::operator<(const customer& c2) //overloading < operator
 {
 	if (apnt.hours < c2.apnt.hours)
 		return true;
@@ -31,7 +31,7 @@ bool customer::operator<(const customer& c2)
 
 	return false;
 }
-bool customer::operator>(const customer& c2)
+bool customer::operator>(const customer& c2) //overloading > operator
 {
 	if (apnt.hours>c2.apnt.hours)
 		return true;
@@ -43,8 +43,8 @@ bool customer::operator>(const customer& c2)
 	return false;
 		
 }
-bool customer::operator==(const customer& c2)
-{
+bool customer::operator==(const customer& c2) //overloading == operator
+{ 
 	if (apnt.hours == c2.apnt.hours && apnt.mins == c2.apnt.mins)
 		return true;
 	else

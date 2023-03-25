@@ -5,9 +5,6 @@ using namespace std;
 #include "mechanic.h"
 #include "queuec.h"
 
-const int MAX_MECHANICS = 3;
-const int MAX_CUSTOMERS = 4;
-
 int main()
 {
 
@@ -90,9 +87,9 @@ int main()
 				cout << "No mechanics" << endl;
 		}
 		//swap using the overloaded operators to arrange them in order
-		for (int i = 0; i < MAX_CUSTOMERS; i++)
+		for (int i = 0; i <numCustomers;i++)
 		{
-			for (int j = i; j < MAX_MECHANICS; j++)
+			for (int j = i; j<numCustomers;j++)
 			{
 				if (customers[i] > customers[j])
 				{
@@ -103,13 +100,13 @@ int main()
 			}
 		}
 		//pushing into queue
-		for (int i = 0; i < MAX_CUSTOMERS; i++)
+		for (int i = 0; i < numCustomers;i++)
 		{
 			if (customers[i].getmID() != -1)
 				qCustomers.push(customers[i]);
 		}
 		//output to screen
-		for (int i = 0; i < MAX_CUSTOMERS; i++)
+		for (int i = 0; i < numCustomers;i++)
 		{
 			cout << qCustomers.peek().getName() << " has an appointment at " << qCustomers.peek().getApt().hours << ":" << qCustomers.peek().getApt().mins << " with " << mechanics[i].getName() << "." << endl;
 			qCustomers.pop();
