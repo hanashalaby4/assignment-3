@@ -2,10 +2,7 @@
 using namespace std;
 
 #include "mechanic.h"
-void mechanic::setCount(int cnt)
-{
-	count = cnt;
-}
+
 void mechanic::printInfo()
 {
 	cout << getName() << " " << getID() << " " << getAge() << " " << getCount() << endl;
@@ -21,9 +18,9 @@ void mechanic::setApoint(const appointment& a)
 {
 	apnts = new appointment[++count];
 }
-bool mechanic::isAvailable(const appointment& apt) const
+bool mechanic::isAvailable(const appointment& apt)
 {
-	for (int i = 0; i < count; i++)
+	for (int i = 0; i < getCount(); i++)
 	{
 		if (apnts->hours == apt.hours && apnts->mins == apt.mins)
 			return false;
@@ -34,7 +31,7 @@ bool mechanic::isAvailable(const appointment& apt) const
 			
 		apnts++;
 	}
-	apnts = apnts - (count);
+	apnts = apnts - (getCount());
 	return false;
 
 }

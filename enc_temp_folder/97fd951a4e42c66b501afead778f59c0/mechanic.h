@@ -16,8 +16,8 @@ public:
 		apnts = NULL; //pointer to null because no appointments yet
 	}
 	void printInfo(); //prints the mechanic's details and appointments for the day
-	bool isAvailable(const appointment& apt) const; //checks if the mechanic is available at a given time
+	bool isAvailable(const appointment& apt); //checks if the mechanic is available at a given time
 	void setApoint(const appointment& a); //adds an appointment to the mechanic's schedule
-	void setCount(int cnt);
+	
 	int getCount() const;
 };
