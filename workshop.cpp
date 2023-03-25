@@ -1,4 +1,4 @@
-
+#include <fstream>
 #include <iostream>
 using namespace std;
 #include "customer.h"
@@ -10,14 +10,16 @@ const int MAX_CUSTOMERS = 4;
 
 int main()
 {
+	ifstream mechanicsInput("mechInfo");
+
 	// Read mechanics' data from the user or initialize them within the main function
-	mechanic mechanics[MAX_MECHANICS];
+	/*mechanic mechanics[MAX_MECHANICS];
 	mechanics[0].setName("Ayman");
 	mechanics[1].setName("Khaled");
-	mechanics[2].setName("Jana");
+	mechanics[2].setName("Jana");*/
 
 	// Read customers' data from the user
-	customer customers[MAX_CUSTOMERS];
+	/*customer customers[MAX_CUSTOMERS];
 	customers[0].setName("Ahmed");
 	customers[0].setApt({ 1, 0 });
 	customers[0].setID(1);
@@ -29,7 +31,9 @@ int main()
 	customers[2].setID(3);
 	customers[3].setName("Mohammed");
 	customers[3].setApt({ 1, 0 });
-	customers[3].setID(4);
+	customers[3].setID(4);*/
+
+
 
 
 	Queue<customer> qCustomers(MAX_CUSTOMERS);
@@ -66,6 +70,7 @@ int main()
 	//pushing into queue
 	for (int i = 0; i < MAX_CUSTOMERS; i++)
 	{
+		if(customers[i].getmID()!= -1)
 		qCustomers.push(customers[i]);
 	}
 
