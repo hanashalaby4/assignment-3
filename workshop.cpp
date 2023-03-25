@@ -87,9 +87,9 @@ int main()
 				cout << "No mechanics" << endl;
 		}
 		//swap using the overloaded operators to arrange them in order
-		for (int i = 0; i <numCustomers;i++)
+		for (int i = 0; i < numCustomers; i++)
 		{
-			for (int j = i; j<numCustomers;j++)
+			for (int j = i; j < numCustomers; j++)
 			{
 				if (customers[i] > customers[j])
 				{
@@ -100,13 +100,13 @@ int main()
 			}
 		}
 		//pushing into queue
-		for (int i = 0; i < numCustomers;i++)
+		for (int i = 0; i < numCustomers; i++)
 		{
 			if (customers[i].getmID() != -1)
 				qCustomers.push(customers[i]);
 		}
 		//output to screen
-		for (int i = 0; i < numCustomers;i++)
+		for (int i = 0; i < numCustomers; i++)
 		{
 			cout << qCustomers.peek().getName() << " has an appointment at " << qCustomers.peek().getApt().hours << ":" << qCustomers.peek().getApt().mins << " with " << mechanics[i].getName() << "." << endl;
 			qCustomers.pop();
@@ -118,3 +118,4 @@ int main()
 		return 0;
 
 	}
+}
