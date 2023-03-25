@@ -23,6 +23,12 @@ int main()
 	}
 	mechanicsInput >> mechAmount;
 	mechanic* mechanics = new mechanic[mechAmount];
+
+	/*if (mechanics == nullptr) {
+		cout << "failed to allocate memory for mechanics" << endl;
+		exit(1);
+	}*/
+
 	for (int i = 0; i < mechAmount; i++)
 	{
 		string name;
@@ -42,7 +48,7 @@ int main()
 	ifstream customersInput;
 	customersInput.open("custInfo.txt");
 
-	if (customersInput.fail()){ //checking if file is open
+	if (customersInput.fail()) { //checking if file is open
 		cout << "failed to open file 2" << endl;
 		exit(1);
 	}
@@ -52,62 +58,66 @@ int main()
 	customersInput >> numCustomers;
 	customer* customers = new customer[numCustomers];
 
-	for (int i = 0; i < numCustomers; i ++)
-	{
-		string name;
-		int age, id, h, m;
-		customersInput >> name >> id >> age >> h >> m;
-		customers[i] = customer(name, id, age, appointment(h, m), -1); //declaring an array of customers with unassigned mechanics
-	}
-	customersInput.close();
+	/*if (customers == nullptr) {
+		cout << "Failed to allocate memory for customers" << endl;
+		exit(1);*/
 
-	Queue<customer> qCustomers(numCustomers);
-	//checking availability
-	for (int j = 0; j < numCustomers;j++)
-	{
-		bool foundMech = false;
-		for (int i = 0; i < mechAmount;i++)
+		for (int i = 0; i < numCustomers; i++)
 		{
-			if (mechanics[i].isAvailable(customers[j].getApt())) //if the mechanic is available for the customers appointment time
+			string name;
+			int age, id, h, m;
+			customersInput >> name >> id >> age >> h >> m;
+			customers[i] = customer(name, id, age, appointment(h, m), -1); //declaring an array of customers with unassigned mechanics
+		}
+		customersInput.close();
+
+		Queue<customer> qCustomers(numCustomers);
+		//checking availability
+		for (int j = 0; j < numCustomers; j++)
+		{
+			bool foundMech = false;
+			for (int i = 0; i < mechAmount; i++)
 			{
-				customers[j].setmID(i + 1);
-				mechanics[i].setApoint(customers[j].getApt()); //sets appointment to the mechanic's array of appointments
-				foundMech = true; // mechanic available
-				break;
+				if (mechanics[i].isAvailable(customers[j].getApt())) //if the mechanic is available for the customers appointment time
+				{
+					customers[j].setmID(i + 1);
+					mechanics[i].setApoint(customers[j].getApt()); //sets appointment to the mechanic's array of appointments
+					foundMech = true; // mechanic available
+					break;
+				}
+			}
+			if (!foundMech) // np mechanics available at the specified time
+				cout << "No mechanics" << endl;
+		}
+		//swap using the overloaded operators to arrange them in order
+		for (int i = 0; i < MAX_CUSTOMERS; i++)
+		{
+			for (int j = i; j < MAX_MECHANICS; j++)
+			{
+				if (customers[i] > customers[j])
+				{
+					customer temp = customers[i];
+					customers[i] = customers[j];
+					customers[j] = temp;
+				}
 			}
 		}
-		if (!foundMech) // np mechanics available at the specified time
-			cout << "No mechanics" << endl;
-	}
-	//swap using the overloaded operators to arrange them in order
-	for (int i = 0; i < MAX_CUSTOMERS; i++)
-	{
-		for (int j = i; j < MAX_MECHANICS; j++)
+		//pushing into queue
+		for (int i = 0; i < MAX_CUSTOMERS; i++)
 		{
-			if (customers[i] > customers[j])
-			{
-				customer temp = customers[i];
-				customers[i] = customers[j];
-				customers[j] = temp;
-			}
+			if (customers[i].getmID() != -1)
+				qCustomers.push(customers[i]);
 		}
+		//output to screen
+		for (int i = 0; i < MAX_CUSTOMERS; i++)
+		{
+			cout << qCustomers.peek().getName() << " has an appointment at " << qCustomers.peek().getApt().hours << ":" << qCustomers.peek().getApt().mins << " with " << mechanics[i].getName() << "." << endl;
+			qCustomers.pop();
+		}
+
+		delete[] mechanics;
+		delete[] customers; //freeing borrowed space from heap
+
+		return 0;
+
 	}
-	//pushing into queue
-	for (int i = 0; i < MAX_CUSTOMERS; i++)
-	{
-		if(customers[i].getmID()!= -1)
-		qCustomers.push(customers[i]);
-	}
-
-	for (int i = 0; i < MAX_CUSTOMERS; i++)
-	{
-		cout << qCustomers.peek().getName() << " has an appointment at " << qCustomers.peek().getApt().hours << ":" << qCustomers.peek().getApt().mins << " with " << mechanics[i].getName() << "." << endl;
-		qCustomers.pop();
-	}
-
-	delete[] mechanics;
-	delete[] customers; //freeing borrowed space from heap
-
-	return 0;
-
-}
