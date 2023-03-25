@@ -21,10 +21,10 @@
     <ClInclude Include="mechanic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\queuec.h">
+    <ClInclude Include="person.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="person.h">
+    <ClInclude Include="queuec.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

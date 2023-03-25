@@ -127,10 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Downloads\queuec.h" />
     <ClInclude Include="customer.h" />
     <ClInclude Include="mechanic.h" />
     <ClInclude Include="person.h" />
+    <ClInclude Include="queuec.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="customer.cpp" />

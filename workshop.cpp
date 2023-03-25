@@ -1,4 +1,4 @@
-#pragma once
+
 #include <iostream>
 using namespace std;
 #include "customer.h"
@@ -44,7 +44,7 @@ int main()
 				customers[j].setmID(i + 1);
 				mechanics[i].setApoint(customers[j].getApt());
 				foundMech = true;
-				break;		
+				break;
 			}
 		}
 		if (!foundMech)
@@ -71,7 +71,8 @@ int main()
 
 	for (int i = 0; i < MAX_CUSTOMERS; i++)
 	{
-		cout << qCustomers.peek();
+		cout << qCustomers.peek().getName() << " has an appointment at " << qCustomers.peek().getApt().hours << ":" << qCustomers.peek().getApt().mins << " with " << mechanics[i].getName() << "." << endl;
+		qCustomers.pop();
 	}
 
 }
