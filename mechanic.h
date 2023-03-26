@@ -1,4 +1,7 @@
-#pragma once
+#ifndef MECHANIC_H
+#define MECHANIC_H 
+
+
 #include <iostream>
 using namespace std;
 #include "person.h"
@@ -18,3 +21,5 @@ public:
 	void setCount(int cnt);
 	int getCount() const;
 };
+
+#endif // !MECHANIC_H

@@ -133,10 +133,10 @@
     <ClInclude Include="queuec.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="assignment-3.cpp" />
     <ClCompile Include="customer.cpp" />
     <ClCompile Include="mechanic.cpp" />
     <ClCompile Include="person.cpp" />
-    <ClCompile Include="workshop.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
