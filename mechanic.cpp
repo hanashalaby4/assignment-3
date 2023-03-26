@@ -2,9 +2,27 @@
 using namespace std;
 
 #include "mechanic.h"
+mechanic::mechanic() :person(), count(0) {
+	
+	for (int i = 0; i < 10; i++)
+	{
+		apnts[i].hours = 0;
+		apnts[i].mins = 0;
+
+	}
+}
+mechanic::mechanic(string n, int id, int a) :person(n, id, a) {
+	this->count = 0;//initializing counter to 0
+	for (int i = 0; i < 10; i++)
+	{
+		apnts[i].hours = 0;
+		apnts[i].mins = 0;
+
+	}
+}
 void mechanic::setCount(int cnt)
 {
-	count = cnt;
+	this->count = cnt;
 }
 void mechanic::printInfo()
 {

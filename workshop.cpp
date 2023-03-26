@@ -11,20 +11,10 @@ int main()
 	//reading mechanics details from a file
 	int mechAmount, apptAmount; //storing the number of mechanics and the amount of appointments each one has
 
-	ifstream mechanicsInput;
-	mechanicsInput.open("mechInfo.txt");
-
-	if (mechanicsInput.fail()) { //checking if file is open
-		cout << "failed to open file" << endl;
-		exit(1);
-	}
+	ifstream mechanicsInput("mechInfo.txt");
+	
 	mechanicsInput >> mechAmount;
 	mechanic* mechanics = new mechanic[mechAmount];
-
-	if (mechanics == nullptr) {
-		cout << "failed to allocate memory for mechanics" << endl;
-		exit(1);
-	}
 
 	for (int i = 0; i < mechAmount; i++)
 	{
@@ -42,22 +32,14 @@ int main()
 
 	//reading customers details from a file
 
-	ifstream customersInput;
-	customersInput.open("custInfo.txt");
-
-	if (customersInput.fail()) { //checking if file is open
-		cout << "failed to open file 2" << endl;
-		exit(1);
-	}
+	ifstream customersInput("custInfo");
 
 	int numCustomers;
 
 	customersInput >> numCustomers;
 	customer* customers = new customer[numCustomers];
 
-	if (customers == nullptr) {
-		cout << "Failed to allocate memory for customers" << endl;
-		exit(1);
+
 
 		for (int i = 0; i < numCustomers; i++)
 		{
@@ -73,7 +55,8 @@ int main()
 		for (int j = 0; j < numCustomers; j++)
 		{
 			bool foundMech = false;
-			for (int i = 0; i < mechAmount; i++)
+
+			for (int i = 0; i < mechAmount&&!foundMech&&customers[i].getmID()==-1;i++)
 			{
 				if (mechanics[i].isAvailable(customers[j].getApt())) //if the mechanic is available for the customers appointment time
 				{
@@ -118,4 +101,3 @@ int main()
 		return 0;
 
 	}
-}

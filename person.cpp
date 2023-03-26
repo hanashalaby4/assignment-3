@@ -10,21 +10,21 @@ person::person()
 }
 person::person(string n, int id, int a)
 {
-	name = n;
-	ID = id;
-	age = a;
+	this->name = n;
+	this->ID = id;
+	this->age = a;
 }
 void person::setAge(int a)
 {
-	age = a;
+	this->age = a;
 }
 void person::setID(int id)
 {
-	ID = id;
+	this->ID = id;
 }
 void person::setName(string n)
 {
-	name = n;
+	this->name = n;
 }
 int person::getAge() const
 {

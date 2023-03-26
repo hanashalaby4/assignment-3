@@ -1,4 +1,4 @@
-#pragma once
+
 #include <iostream>
 using namespace std;
 #include "customer.h"
@@ -19,6 +19,11 @@ appointment customer::getApt() const
 int customer::getmID() const
 {
 	return mechanicID;
+}
+void customer::printInfo()
+{
+	cout << getName() << " " << getID() << " " << getAge() << " " << getmID() << " ";
+	apnt.printApt();
 }
 bool customer::operator<(const customer& c2) //overloading < operator
 {
@@ -50,8 +55,4 @@ bool customer::operator==(const customer& c2) //overloading == operator
 	else
 		return false;
 }
-void customer::printInfo()
-{
-	cout << getName() << " " << getID() << " " << getAge() << " " << getmID() << " ";
-	apnt.printApt();
-}
+
